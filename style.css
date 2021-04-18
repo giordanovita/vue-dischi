@@ -11,6 +11,7 @@ body{
     width: 100%;
     height: auto;
     background: linear-gradient(red,black);
+    padding: 50px;
 }
 
 h1{
@@ -20,20 +21,28 @@ h1{
 }
 
 ul{
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 50px 20px;
+    padding: 50px 50px;
     list-style-type: none;
     color: white;
 }
 
 li{
-    width: 90%;
-    padding:20px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding:20px 0;
+    margin-right: 40px;
     border-radius: 15px;
 }
+
+ li:nth-child(3), li:nth-child(6), li:nth-child(9){
+    width: 270px;
+ }
 
 li:hover{
     background: black;
@@ -43,16 +52,15 @@ li:hover{
 
 
 li div{
-   
-    display: flex;
-    flex-direction: column;
-    align-items:center ;
-    justify-content: center;
-    margin: 0 20px;
+    justify-self: center;
+    align-self: center;
     white-space: nowrap;
 }
 
 ul li img{
-    width: 250px;
+    justify-self: center;
+    align-self: center;
+    width: 180px;
     height: 210px;
+    padding-bottom: 20px;
 }

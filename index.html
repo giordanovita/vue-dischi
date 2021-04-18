@@ -23,13 +23,23 @@
     <div id="app" class="container">
         <h1>MUSIC COLLECTION</h1>
 
+        <label for="genre">Scegli il tuo genere musicale:</label>
+        <select  name="genre" id="genre" v-model='filterMusic'>
+            <option value="0" selected>Tutti i generi</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
+
+        </select>
+
         <ul>
-            <li v-for='item in music'>
+            <li v-for='item in filterGenre()'>
                 <img v-bind:src="item.poster" alt=""></img>
-                <div>AUTORE  {{item.author}}</div>
-                <div>GENERE  {{item.genre}}</div>
-                <div>TITOLO  {{item.title}}</div>
-                <div>ANNO    {{item.year}}</div>
+                <div> {{item.author}}</div>
+                <div> {{item.genre}}</div>
+                <div> {{item.title}}</div>
+                <div> {{item.year}}</div>
             </li>
         </ul>
 

@@ -11,29 +11,52 @@ function albumCard(){
         el: '#app',
         data: {
             music:[],
-            poster:[]
-                    },
-        mounted(){
-            this.getData()
-        },
+            sortedMusic:'',
+            filterMusic:'',
 
-        methods:{
-                    
-            getData: function (){
+
+                    },
+        mounted:
+            function(){
                         
                 axios.get('https://flynn.boolean.careers/exercises/api/array/music')
                     
                     .then(data => {
                         this.music = data.data.response;
-                        console.log(this.music);
+
+                        this.sortedMusic = this.music.sort((a, b) => b.year - a.year)
+                        console.log(this.sortedMusic)
+                        
+
                         
                     })
+                     .catch(() => {
+                        console.log('Errore');
+                    }); 
+            },
+            
+            
+        
+
+        methods:{
                     
 
+            filterGenre:function(){
+                let filteredMusic = [];
+
+                if(this.filterMusic != 0){
+                    filteredMusic=this.sortedMusic.filter((elem) => elem.genre ==this.filterMusic);
+                    
+                    console.log(filteredMusic)
+                }else{
+                    filteredMusic=this.sortedMusic;
+                }
+                return filteredMusic;
+             }
+               
             }
-        }
-    });
-}
+        })
+    }
 
 
 function init() {
